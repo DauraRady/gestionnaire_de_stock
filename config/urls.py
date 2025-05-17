@@ -20,3 +20,20 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('produits/', include('catalogue.urls')),  
+]
+
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('produits/', include('catalogue.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),  # login/logout
+    path('users/', include('users.urls')),  # ton app users
+]

@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'catalogue',
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -68,6 +70,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
+# Redirections après login / logout
+LOGIN_REDIRECT_URL = '/produits/'
+LOGOUT_REDIRECT_URL = '/accounts/login/'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases

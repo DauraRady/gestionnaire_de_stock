@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Liste des produits</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f7f7f7;
+        margin: 0;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+
+      .produits-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      li {
+        background-color: #e9f5ff;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #333;
+        font-size: 16px;
+      }
+
+      .stock {
+        font-weight: bold;
+        color: #007bff;
+      }
+
+      .rupture {
+        color: red;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="produits-container">
+      <h1>Nos produits</h1>
+      <ul>
+        {% for produit in produits %}
+        <li>
+          <span> {{ produit.nom }} – {{ produit.prix }} € </span>
+          <span
+            class="{% if produit.quantite == 0 %}rupture{% else %}stock{% endif %}"
+          >
+            {% if produit.quantite == 0 %} Rupture de stock {% else %} {{
+            produit.quantite }} en stock {% endif %}
+          </span>
+        </li>
+        {% empty %}
+        <li>Aucun produit disponible pour le moment.</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </body>
+</html>
