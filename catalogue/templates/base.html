@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Gestion de Stock{% endblock %}</title>
+  </head>
+  <body>
+    <header>
+      <h1>Mon application de gestion de stock</h1>
+      <nav>
+        <a href="{% url 'accueil' %}">Accueil</a> |
+        <a href="{% url 'liste_produits' %}">Produits</a> |
+        <a href="{% url 'demande_entreprise' %}">Créer une entreprise</a>
+      </nav>
+      <hr />
+    </header>
+
+    <main>{% block content %}{% endblock %}</main>
+
+    <footer>
+      <hr />
+      <p>&copy; 2025 Kalisto QA</p>
+    </footer>
+  </body>
+</html>
